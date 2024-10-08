@@ -1,5 +1,6 @@
 package com.example.storeservice;
 
+import java.io.IOException;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -7,6 +8,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.example.storeentity.StoreEntity;
 import com.example.storerepository.StoreRepository;
 
@@ -33,11 +36,9 @@ public class StoreService {
 		return storeRepository.findAll();
 	}
 
-//TODO 
-	public void saveData(String storeName, String date, Long cashAmount, Long cardAmount, Long totalRegisterAmount,
-			Long investedAmount, byte[] investmentProofs) {
-
-	}
+	
+	
+	
 
 	@Transactional
 	public void deleteBystoreName(String storeName) {
@@ -72,5 +73,14 @@ public class StoreService {
 				.orElseThrow(() -> new RuntimeException("no store existing store details found with this id"));
 
 	}
-
+	public void saveImage(MultipartFile file) {
+        try {
+            StoreEntity storeEntity = new StoreEntity();
+            storeEntity.setInvestmentProofs(file.getBytes()); 
+            storeRepository.save(storeEntity);
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to save image");
+        }
+    }
 }
+

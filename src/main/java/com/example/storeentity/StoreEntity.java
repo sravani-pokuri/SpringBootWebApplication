@@ -20,9 +20,11 @@ public class StoreEntity {
 	private Long cardAmount;
 	private Long totalRegisterAmount;
 	private Long investedAmount;
+	
 	@Lob
 	@Column(name = "investment_proofs")
-	private byte[] investmentProofs;
+	 private byte[] investmentProofs;
+	
 	public String getStoreName() {
 		return storeName;
 	}
@@ -66,6 +68,8 @@ public class StoreEntity {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	
 	public byte[] getInvestmentProofs() {
 		return investmentProofs;
 	}

@@ -22,7 +22,6 @@ public class UserEntity {
 	
 	@Column(nullable = false)
 	@NotEmpty(message = "username cannot be empty")
-	//@Size(min = 2, message = "username should contain at least 2 characters")
 	private String username;
 	
 	@NotEmpty(message = "password cannot be empty")
@@ -32,11 +31,6 @@ public class UserEntity {
 	@Email(message = "invalid email format")
 	@NotEmpty(message = "email cannot be empty")
 	private String email;
-	
-//	@NotEmpty(message = "mobile number cannot be empty")
-//	@Pattern(regexp = "^[0-9]{10}$", message = "mobile number must be 10 digits")
-//	@Column(name = "mobileNo", nullable = true)
-//	private String mobileNo;
 
 	public Long getId() {
 		return id;
@@ -74,14 +68,5 @@ public class UserEntity {
 	public String toString() {
 		return "UserEntity [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + "]";
 	}
-
-//	public String getMobileNo() {
-//		return mobileNo;
-//	}
-//
-//	public void setMobileNo(String mobileNo) {
-//		this.mobileNo = mobileNo;
-//	}
-
 	
 }
