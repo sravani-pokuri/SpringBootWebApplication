@@ -32,50 +32,45 @@ public class StoreService {
 
 		return storeRepository.findAll();
 	}
+
 //TODO 
 	public void saveData(String storeName, String date, Long cashAmount, Long cardAmount, Long totalRegisterAmount,
 			Long investedAmount, byte[] investmentProofs) {
 
 	}
 
-	
 	@Transactional
 	public void deleteBystoreName(String storeName) {
-		if(storeRepository.existsByStoreName(storeName)) {
+		if (storeRepository.existsByStoreName(storeName)) {
 			storeRepository.deleteByStoreName(storeName);
-		}else {
+		} else {
 			throw new RuntimeException("store not found with this store name " + storeName);
 		}
 	}
 
 	public void updateById(Long id, StoreEntity storeDetails) {
-	StoreEntity existingStore= storeRepository.findById(id)
-						.orElseThrow(() -> new RuntimeException("no store details with the provided id "+id));
-	
-	existingStore.setCardAmount(storeDetails.getCardAmount());
-	existingStore.setCashAmount(storeDetails.getCashAmount());
-	existingStore.setTotalRegisterAmount(storeDetails.getTotalRegisterAmount());
-	existingStore.setStoreName(storeDetails.getStoreName());
-	existingStore.setInvestedAmount(storeDetails.getInvestedAmount());
-	storeRepository.save(existingStore);
+		StoreEntity existingStore = storeRepository.findById(id)
+				.orElseThrow(() -> new RuntimeException("no store details with the provided id " + id));
+
+		existingStore.setCardAmount(storeDetails.getCardAmount());
+		existingStore.setCashAmount(storeDetails.getCashAmount());
+		existingStore.setTotalRegisterAmount(storeDetails.getTotalRegisterAmount());
+		existingStore.setStoreName(storeDetails.getStoreName());
+		existingStore.setInvestedAmount(storeDetails.getInvestedAmount());
+		storeRepository.save(existingStore);
 	}
 
 	public void findById(Long id) {
 		StoreEntity userCheck = storeRepository.findById(id)
-								.orElseThrow(() -> new RuntimeException("no store existing store details found with this id"));
+				.orElseThrow(() -> new RuntimeException("no store existing store details found with this id"));
 		storeRepository.findById(id);
-		
-		
+
 	}
 
 	public StoreEntity getStoreById(Long id) {
 		return storeRepository.findById(id)
 				.orElseThrow(() -> new RuntimeException("no store existing store details found with this id"));
-       
 
-		
 	}
-	
-	
 
 }

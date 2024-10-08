@@ -7,7 +7,6 @@ import com.example.storeentity.StoreEntity;
 @Repository
 public interface StoreRepository extends JpaRepository<StoreEntity, Long>{
 
-
 	void deleteByStoreName(String storeName);
 
     boolean existsByStoreName(String storeName);
