@@ -1,12 +1,26 @@
 package com.example.storecontroller;
 
+import java.net.URI;
+import java.time.Instant;
+import java.time.ZonedDateTime;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Consumer;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.CacheControl;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity.BodyBuilder;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,5 +50,26 @@ public class StoreController {
 		return check;
 		//return storeService.getAllData();
 	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<StoreEntity> getStoreById(@PathVariable Long id){
+		StoreEntity store = storeService.getStoreById(id);
+		return ResponseEntity.ok(store);
+	}
+	
+	@DeleteMapping("/delete/{storeName}")
+	public ResponseEntity<String> deleteProduct(@PathVariable String storeName) {
+		storeService.deleteBystoreName(storeName);
+		return ResponseEntity.ok("deleted successfully");
+	}
+
+	 
+	@PutMapping("/update/{id}")
+	public ResponseEntity<String> updateById(@PathVariable Long id, @RequestBody StoreEntity storeDetails){
+		 storeService.updateById(id,storeDetails);
+		 return ResponseEntity.ok("updated successfully");
+			
+			
+	}		
 
 }
