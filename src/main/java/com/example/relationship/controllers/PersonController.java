@@ -15,6 +15,7 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
+    //post api for person 
     @PostMapping("/create")
     public ResponseEntity<Person> createPersonWithPassport(@RequestBody Person person) {
         Passport passport = person.getPassport();
