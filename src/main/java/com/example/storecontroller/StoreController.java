@@ -32,7 +32,6 @@ public class StoreController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("No file uploaded.");
         }
 
-
         if (!file.getContentType().startsWith("image/")) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please upload a valid image file.");
         }

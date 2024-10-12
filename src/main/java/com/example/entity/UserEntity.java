@@ -8,7 +8,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -68,5 +67,7 @@ public class UserEntity {
 	public String toString() {
 		return "UserEntity [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + "]";
 	}
+
+	
 	
 }

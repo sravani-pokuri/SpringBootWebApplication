@@ -8,9 +8,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.example"})
-@ComponentScan(basePackages = {"com.example.service","com.example.storeservice"})
-@EntityScan(basePackages = {"com.example.entity","com.example.storeentity"})
-@EnableJpaRepositories(basePackages = {"com.example.repository","com.example.storerepository"})
+@ComponentScan(basePackages = {"com.example.service","com.example.storeservice","com.example.relationship.service"})
+@EntityScan(basePackages = {"com.example.entity","com.example.storeentity","com.example.relationship.entities"})
+@EnableJpaRepositories(basePackages = {"com.example.repository","com.example.storerepository","com.example.relationship.repositories"})
 
 public class SignupSigninFunctionalityApplication {
 
