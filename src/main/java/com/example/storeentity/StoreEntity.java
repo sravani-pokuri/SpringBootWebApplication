@@ -1,11 +1,9 @@
 package com.example.storeentity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,9 +19,9 @@ public class StoreEntity {
 	private Long totalRegisterAmount;
 	private Long investedAmount;
 	
-	@Lob
-	@Column(name = "investment_proofs")
-	 private byte[] investmentProofs;
+//	@Lob
+//	@Column(name = "investment_proofs")
+//	 private byte[] investmentProofs;
 	
 	public String getStoreName() {
 		return storeName;
@@ -70,12 +68,12 @@ public class StoreEntity {
 	}
 	
 	
-	public byte[] getInvestmentProofs() {
-		return investmentProofs;
-	}
-	public void setInvestmentProofs(byte[] investmentProofs) {
-		this.investmentProofs = investmentProofs;
-	}
+//	public byte[] getInvestmentProofs() {
+//		return investmentProofs;
+//	}
+//	public void setInvestmentProofs(byte[] investmentProofs) {
+//		this.investmentProofs = investmentProofs;
+//	}
 	@Override
 	public String toString() {
 		return "StoreEntity [id=" + id + ", storeName=" + storeName + ", date=" + date + ", cashAmount=" + cashAmount

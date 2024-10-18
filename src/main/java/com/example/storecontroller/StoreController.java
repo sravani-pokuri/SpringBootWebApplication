@@ -35,8 +35,8 @@ public class StoreController {
         if (!file.getContentType().startsWith("image/")) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Please upload a valid image file.");
         }
-
-        storeService.saveImage(file);
+//
+//        storeService.saveImage(file);
         return ResponseEntity.ok("Image uploaded successfully!");
     }
 
