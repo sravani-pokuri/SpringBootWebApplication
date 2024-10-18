@@ -3,9 +3,9 @@ package com.example.dpr.api.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.dpr.api.entity.MasterPayEntity;
+import com.example.dpr.api.entity.YogiBankEntity;
 
 @Repository
-public interface MasterPayRepository extends JpaRepository<MasterPayEntity, Long>{
+public interface YogiBankRepository extends JpaRepository<YogiBankEntity, Long>{
 
 }

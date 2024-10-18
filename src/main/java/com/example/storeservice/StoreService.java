@@ -73,14 +73,14 @@ public class StoreService {
 				.orElseThrow(() -> new RuntimeException("no store existing store details found with this id"));
 
 	}
-	public void saveImage(MultipartFile file) {
-        try {
-            StoreEntity storeEntity = new StoreEntity();
-            storeEntity.setInvestmentProofs(file.getBytes()); 
-            storeRepository.save(storeEntity);
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to save image");
-        }
-    }
+//	public void saveImage(MultipartFile file) {
+//        try {
+//            StoreEntity storeEntity = new StoreEntity();
+//            storeEntity.setInvestmentProofs(file.getBytes()); 
+//            storeRepository.save(storeEntity);
+//        } catch (IOException e) {
+//            throw new RuntimeException("Failed to save image");
+//        }
+   // }
 }
 

@@ -4,15 +4,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+
 
 @Entity
-@Table(name = "instant_mudra")
-public class InstantMudra {
+public class ImperiaEntity {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Integer prepaid;
+	private Long prepaid;
 	private Long postpaid;
 	private Long pending;
 	public Long getId() {
@@ -21,10 +20,10 @@ public class InstantMudra {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Integer getPrepaid() {
+	public Long getPrepaid() {
 		return prepaid;
 	}
-	public void setPrepaid(Integer prepaid) {
+	public void setPrepaid(Long prepaid) {
 		this.prepaid = prepaid;
 	}
 	public Long getPostpaid() {
@@ -41,10 +40,19 @@ public class InstantMudra {
 	}
 	@Override
 	public String toString() {
-		return "InstantMudra [id=" + id + ", prepaid=" + prepaid + ", postpaid=" + postpaid + ", pending=" + pending
+		return "ImperiaEntity [id=" + id + ", prepaid=" + prepaid + ", postpaid=" + postpaid + ", pending=" + pending
 				+ "]";
 	}
+	public ImperiaEntity(Long id, Long prepaid, Long postpaid, Long pending) {
+		super();
+		this.id = id;
+		this.prepaid = prepaid;
+		this.postpaid = postpaid;
+		this.pending = pending;
+	}
+	public ImperiaEntity() {
+		super();
+		
+	}
 	
-	
-
 }
