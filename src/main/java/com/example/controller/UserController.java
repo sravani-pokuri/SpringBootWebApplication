@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.entity.UserEntity;
 import com.example.service.UserService;
-
-import jakarta.validation.Valid;
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/v1")
 public class UserController {
