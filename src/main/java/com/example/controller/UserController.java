@@ -4,6 +4,7 @@ package com.example.controller;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +14,7 @@ import com.example.entity.UserEntity;
 import com.example.service.UserService;
 
 import jakarta.validation.Valid;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/v1")
 public class UserController {
@@ -22,18 +23,23 @@ public class UserController {
 	private UserService userService;
 	
 	@PostMapping("/signup")
-	public String registerUser(@Valid @RequestBody UserEntity user) {
+
+	public ResponseEntity<Map<String, String>> registerUser1(@Valid @RequestBody UserEntity user) {
 		System.out.println(user+ " from user");
 		return userService.createUser(user);
 		
 	}
 
+    public ResponseEntity<Map<String, String>> registerUser(@RequestBody UserEntity user) {
+        return userService.createUser(user);
+    }
+
+
 	@PostMapping("/login")
-	public ResponseEntity<String> loginUser(@RequestBody Map<String, String> requestBody) {
-	    String email = requestBody.get("email");
-	    String password = requestBody.get("password");
-	    System.out.println(requestBody);
-	   
+	public ResponseEntity<Map<String, String>> loginUser(@RequestBody Map<String, String> loginData) {
+	    String email = loginData.get("email");
+	    String password = loginData.get("password");
+
 	    return userService.login(email, password);
 	}
 }
