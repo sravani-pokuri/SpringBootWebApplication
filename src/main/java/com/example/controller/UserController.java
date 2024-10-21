@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.entity.UserEntity;
 import com.example.service.UserService;
 
+
 import jakarta.validation.Valid;
 @CrossOrigin
 @RestController
@@ -24,11 +25,17 @@ public class UserController {
 	
 	@PostMapping("/signup")
 
-	public ResponseEntity<Map<String, String>> registerUser1(@Valid @RequestBody UserEntity user) {
+
+	public ResponseEntity<Map<String, String>> registerUser11(@Valid @RequestBody UserEntity user) {
 		System.out.println(user+ " from user");
 		return userService.createUser(user);
 		
 	}
+
+    public ResponseEntity<Map<String, String>> registerUser1(@RequestBody UserEntity user) {
+        return userService.createUser(user);
+    }
+
 
     public ResponseEntity<Map<String, String>> registerUser(@RequestBody UserEntity user) {
         return userService.createUser(user);

@@ -5,9 +5,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+<<<<<<< HEAD
 
 @SpringBootApplication(scanBasePackages = {"com.example.dpr.api"})
 @ComponentScan(basePackages = {"com.example.service","com.example.storeservice","com.example.relationship.service", "com.example.dpr.api.service"})
+=======
+@SpringBootApplication
+@ComponentScan(basePackages = {"com.example"})
+@ComponentScan(basePackages = {"com.example.service","com.example.storeservice","com.example.relationship.service"})
+//@SpringBootApplication
+//@ComponentScan(basePackages = {"com.example.service","com.example.storeservice","com.example.relationship.service","com.example.dpr", "com.example.dpr.api.service"})
+>>>>>>> c95867cf2e523b5f14ad4b5492ed0037c5e654e2
 @EntityScan(basePackages = {"com.example.entity","com.example.storeentity","com.example.relationship.entities","com.example.dpr.api.entity"})
 @EnableJpaRepositories(basePackages = {"com.example.repository","com.example.storerepository","com.example.relationship.repositories","com.example.dpr.api.repository"})
 
