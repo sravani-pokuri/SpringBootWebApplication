@@ -12,6 +12,7 @@ public class YogiGetListEntity {
 	private Long id;
 	private String name;
 	private Long amount;
+	private String date;
 	public Long getId() {
 		return id;
 	}
@@ -30,20 +31,24 @@ public class YogiGetListEntity {
 	public void setAmount(Long amount) {
 		this.amount = amount;
 	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
 	@Override
 	public String toString() {
-		return "YogiGetListEntity [id=" + id + ", name=" + name + ", amount=" + amount + "]";
+		return "YogiGetListEntity [id=" + id + ", name=" + name + ", amount=" + amount + ", date=" + date + "]";
 	}
-	public YogiGetListEntity(Long id, String name, Long amount) {
+	public YogiGetListEntity(Long id, String name, Long amount, String date) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.amount = amount;
+		this.date = date;
 	}
-	public YogiGetListEntity() {
-		super();
-		
-	}
+	
 	
 
 }

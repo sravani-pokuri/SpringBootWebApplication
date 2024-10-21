@@ -15,51 +15,78 @@ public class CompletePayloadEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@ManyToOne(cascade = CascadeType.ALL) // Ensure that FormDataEntity is an @Entity
-    @JoinColumn(name = "form_data_id") // Foreign key column in the CompletePayloadEntity table
+	@ManyToOne(cascade = CascadeType.ALL) 
+    @JoinColumn(name = "form_data_id")
     private FormDataEntity formData;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "complete_payload_id") // Foreign key in the YogiNeedListEntity table
+    @JoinColumn(name = "complete_payload_id") 
     private List<YogiNeedListEntity> yogiNeedList;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "complete_payload_id") // Foreign key in the YogiGetListEntity table
+    @JoinColumn(name = "complete_payload_id") 
     private List<YogiGetListEntity> yogiGetList;
+    
+    private String date;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public FormDataEntity getFormData() {
 		return formData;
 	}
+
 	public void setFormData(FormDataEntity formData) {
 		this.formData = formData;
 	}
+
 	public List<YogiNeedListEntity> getYogiNeedList() {
 		return yogiNeedList;
 	}
+
 	public void setYogiNeedList(List<YogiNeedListEntity> yogiNeedList) {
 		this.yogiNeedList = yogiNeedList;
 	}
+
 	public List<YogiGetListEntity> getYogiGetList() {
 		return yogiGetList;
 	}
+
 	public void setYogiGetList(List<YogiGetListEntity> yogiGetList) {
 		this.yogiGetList = yogiGetList;
 	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
 	@Override
 	public String toString() {
-		return "CompletePayloadEntity [formData=" + formData + ", yogiNeedList=" + yogiNeedList + ", yogiGetList="
-				+ yogiGetList + "]";
+		return "CompletePayloadEntity [id=" + id + ", formData=" + formData + ", yogiNeedList=" + yogiNeedList
+				+ ", yogiGetList=" + yogiGetList + ", date=" + date + "]";
 	}
-	public CompletePayloadEntity(FormDataEntity formData, List<YogiNeedListEntity> yogiNeedList,
-			List<YogiGetListEntity> yogiGetList) {
+
+	public CompletePayloadEntity(Long id, FormDataEntity formData, List<YogiNeedListEntity> yogiNeedList,
+			List<YogiGetListEntity> yogiGetList, String date) {
 		super();
+		this.id = id;
 		this.formData = formData;
 		this.yogiNeedList = yogiNeedList;
 		this.yogiGetList = yogiGetList;
+		this.date = date;
 	}
-	public CompletePayloadEntity() {
-		super();
-		
-	}
+    
+    
+	
 	
 	
 }

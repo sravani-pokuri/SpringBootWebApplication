@@ -26,4 +26,9 @@ public class YogiGetService {
 		
 		return yogiGetListRepository.findAll();
 	}
+
+	
+	public List<YogiGetListEntity> findByDate(String date) {
+	    return yogiGetListRepository.findByDate(date);
+	}
 }

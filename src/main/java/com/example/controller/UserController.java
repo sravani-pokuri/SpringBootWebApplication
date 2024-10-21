@@ -23,7 +23,7 @@ public class UserController {
 	
 	@PostMapping("/signup")
 	public String registerUser(@Valid @RequestBody UserEntity user) {
-		//System.out.println(user);
+		System.out.println(user+ " from user");
 		return userService.createUser(user);
 		
 	}

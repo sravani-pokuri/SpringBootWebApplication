@@ -29,4 +29,9 @@ public class YogiNeedService {
 		return yogiNeedListRepository.findAll();
 	}
 
+	public List<YogiNeedListEntity> findByDate(String date) {
+	    return yogiNeedListRepository.findByDate(date);
+	}
+
+
 }

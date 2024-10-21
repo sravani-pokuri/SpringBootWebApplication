@@ -68,6 +68,16 @@ public class UserEntity {
 		return "UserEntity [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email + "]";
 	}
 
+	public UserEntity(Long id, @NotEmpty(message = "username cannot be empty") String username,
+			@NotEmpty(message = "password cannot be empty") @Size(min = 6, message = "password size must be at least 6 characters long") String password,
+			@Email(message = "invalid email format") @NotEmpty(message = "email cannot be empty") String email) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+	}
+
 	
 	
 }
