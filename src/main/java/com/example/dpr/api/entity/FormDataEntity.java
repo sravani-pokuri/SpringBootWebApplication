@@ -14,8 +14,9 @@ import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class FormDataEntity implements Serializable {
+	private static final long serialVersionUID = 1L;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
 
@@ -47,7 +48,6 @@ public class FormDataEntity implements Serializable {
     @Column(updatable = false)
     private LocalDateTime createdDate;
 
-    // Getters and Setters
     public InstantMudraEntity getInstantmudra() {
         return instantmudra;
     }
