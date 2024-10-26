@@ -21,7 +21,6 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    // Updated createUser method with JSON response
     public ResponseEntity<Map<String, String>> createUser(@Valid UserEntity user) {
         Optional<UserEntity> checkExistingUser = userRepository.findByEmail(user.getEmail());
         
@@ -32,7 +31,6 @@ public class UserService {
             return new ResponseEntity<>(response, HttpStatus.CONFLICT);
         }
 
-        // Save the new user
         userRepository.save(user);
         response.put("message", "User registered successfully");
         return new ResponseEntity<>(response, HttpStatus.CREATED);

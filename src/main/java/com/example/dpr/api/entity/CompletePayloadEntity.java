@@ -15,8 +15,8 @@ public class CompletePayloadEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@ManyToOne(cascade = CascadeType.ALL) // Ensure that FormDataEntity is an @Entity
-    @JoinColumn(name = "form_data_id") // Foreign key column in the CompletePayloadEntity table
+	@ManyToOne(cascade = CascadeType.ALL) 
+    @JoinColumn(name = "form_data_id") 
     private FormDataEntity formData;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -24,8 +24,9 @@ public class CompletePayloadEntity {
     private List<YogiNeedListEntity> yogiNeedList;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "complete_payload_id") // Foreign key in the YogiGetListEntity table
+    @JoinColumn(name = "complete_payload_id") 
     private List<YogiGetListEntity> yogiGetList;
+    
 	public FormDataEntity getFormData() {
 		return formData;
 	}
