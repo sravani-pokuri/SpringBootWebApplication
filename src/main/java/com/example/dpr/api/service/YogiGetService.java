@@ -3,6 +3,7 @@ package com.example.dpr.api.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.example.dpr.api.entity.YogiGetListEntity;
@@ -18,10 +19,11 @@ public class YogiGetService {
 	private YogiGetListRepository yogiGetListRepository;
 
 	public void save(YogiGetListEntity yogiGet) {
-		//if(yogiGet != null) {
+		
 		yogiGetListRepository.save(yogiGet);
 	}
 
+	@Cacheable("yogigetlist")
 	public List<YogiGetListEntity> findAll() {
 		
 		return yogiGetListRepository.findAll();
